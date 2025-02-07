@@ -33,7 +33,7 @@ The project uses the following dependencies:
 ## Getting Started
 1. **Clone the repository**:
    ```sh
-   git clone <repository-url>
+   git clone <https://github.com/shirshakk/MobileWeatherApp.git>
    ```
 2. **Navigate to the project directory**:
    ```sh
