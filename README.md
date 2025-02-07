@@ -1,16 +1,72 @@
-# weather_app
+## Overview
+The Weather App is a Flutter application that fetches and displays the current weather information for a specified city using the OpenWeather API.
 
-Weather api project to understand working of apis.
+## Project Structure
+```
+.gitignore
+.idea/
+.metadata
+analysis_options.yaml
+android/
+lib/
+pubspec.lock
+pubspec.yaml
+README.md
+test/
+weather_app.iml
+```
+
+### Key Files and Directories
+- **lib/main.dart**: The main entry point of the application.
+- **lib/consts.dart**: Contains constants used in the application.
+- **android/**: Contains Android-specific configuration and code.
+- **test/**: Contains test files for the application.
+- **pubspec.yaml**: Defines the dependencies and metadata for the project.
+
+## Dependencies
+The project uses the following dependencies:
+- `flutter`: The Flutter SDK.
+- `cupertino_icons`: Cupertino icons for iOS.
+- `weather`: A package to fetch weather data.
+- `intl`: A package for internationalization and localization.
 
 ## Getting Started
+1. **Clone the repository**:
+   ```sh
+   git clone <https://github.com/shirshakk/MobileWeatherApp.git>
+   ```
+2. **Navigate to the project directory**:
+   ```sh
+   cd weather_app
+   ```
+3. **Install dependencies**:
+   ```sh
+   flutter pub get
+   ```
+4. **Run the application**:
+   ```sh
+   flutter run
+   ```
 
-This project is a starting point for a Flutter application.
+## Main Components
+### main.dart
+- **MyApp**: The root widget of the application.
+- **HomePage**: The main screen displaying weather information.
+- **_HomePageState**: The state class for `HomePage` that fetches and displays weather data.
 
-A few resources to get you started if this is your first Flutter project:
+### consts.dart
+- **OPENWEATHER_API_KEY**: The API key for accessing the OpenWeather API.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Weather Data Fetching
+The weather data is fetched using the `WeatherFactory` class from the `weather` package. The API key is stored in consts.dart.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Example:
+```dart
+final WeatherFactory _wf = WeatherFactory(OPENWEATHER_API_KEY);
+_wf.currentWeatherByCityName("Delhi").then((w) {
+  setState(() {
+    _weather = w;
+  });
+});
+```
+
